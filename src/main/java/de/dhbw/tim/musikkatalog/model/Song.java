@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 //@Entity
 //@Table(name = "musiktitel")
-public class Musiktitel {
+public class Song {
 
     //@Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +17,9 @@ public class Musiktitel {
     private String genre;
     private LocalDate releaseDate;
 
-    public Musiktitel() {}
+    public Song() {}
 
-    public Musiktitel(String title, String album, String artist, String genre, LocalDate releaseDate) {
+    public Song(String title, String album, String artist, String genre, LocalDate releaseDate) {
         this.title = title;
         this.album = album;
         this.artist = artist;
