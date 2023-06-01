@@ -11,12 +11,26 @@ public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "album")
     private String album;
+
+    @Column(name = "artist")
     private String artist;
+
+    @Column(name = "genre")
     private String genre;
+
+    @Column(name = "releaseDate")
     private LocalDate releaseDate;
+
+    @Column(name = "recordingMedium")
     private String recordingMedium;
+
+    @Column(name = "fileName")
     private String fileName;
 
     public Song() {}

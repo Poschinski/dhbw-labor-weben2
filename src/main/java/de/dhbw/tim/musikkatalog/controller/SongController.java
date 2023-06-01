@@ -14,7 +14,6 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class SongController {
 
-    //private List<Song> Songs = new ArrayList<Song>();
     private SongRepository songRepository;
 
     public SongController(SongRepository songRepository) { this.songRepository = songRepository;}
