@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -19,18 +20,53 @@ public class SongController {
     public SongController(SongRepository songRepository) { this.songRepository = songRepository;}
 
     @GetMapping("/songs")
-    public ResponseEntity<List<Song>> getAllSongs() {
-        return new ResponseEntity<>(null, HttpStatus.OK);
+    public ResponseEntity<List<Song>> getAllSongs(@RequestParam(required = false) String title) {
+
+        try {
+            List<Song> posts = new ArrayList<Song>();
+
+            if (title == null) {
+                posts.addAll(songRepository.findAll());
+            } else {
+                posts.addAll(songRepository.findByTitleContaining(title));
+            }
+
+            if(posts.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+
+            return new ResponseEntity<>(posts, HttpStatus.OK);
+
+        } catch (Exception exception) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
-    @GetMapping("/songs({id}")
+    @GetMapping("/songs/{id}")
     public ResponseEntity<Song> getSongById(@PathVariable("id") long id) {
-        return null;
+
+        Optional<Song> postData =  songRepository.findById(id);
+
+        if(postData.isPresent()) {
+            return new ResponseEntity<>(postData.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping("/songs")
     public ResponseEntity<Song> createSong(@RequestBody Song song) {
-        return null;
+
+        try {
+
+            Song _song = songRepository
+                    .save(new Song(song.getTitle(), song.getAlbum(), song.getArtist(), song.getGenre(), song.getReleaseDate(), song.getRecordingMedium(), song.getFileName()));
+
+            return new ResponseEntity<>(_song, HttpStatus.CREATED);
+
+        } catch (Exception exception) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @DeleteMapping("/songs/{id}")
