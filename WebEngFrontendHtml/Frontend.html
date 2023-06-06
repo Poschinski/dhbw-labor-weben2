@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Meine Musikbibliothek</title>
   <link rel="stylesheet" href="Frontend.css">
   <style></style>
 </head>
 <body>
+<div class="page-header">
+  <h1>Musikbibliothek</h1>
+  <h2>Von Frederik Junk, Daniel Balla, Marcus Unglert und Jakob Schwarz</h2>
+</div>
   <div class="container">
     <div class="form-container">
       <h2>Neuen Song hinzufügen</h2>
@@ -32,6 +37,9 @@
         <input type="text" id="filename" name="filename" required><br><br>
 
         <button type="submit">Song hinzufügen</button>
+        <button id="deleteButton" style="display: none;" onclick="deleteSong()">Löschen</button>
+        <button id="updateButton" style="display: none;" onclick="updateSong()">Update</button>
+
       </form>
     </div>
     <div class="list-container">
@@ -53,9 +61,6 @@
         </tbody>
       </table>
       <!-- <ul id="songList"></ul> -->
-
-      <button id="deleteButton" style="display: none;" onclick="deleteSong()">Löschen</button>
-      <button id="updateButton" style="display: none;" onclick="updateSong()">Update</button>
 
     </div>
   </div>

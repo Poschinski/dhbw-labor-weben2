@@ -96,8 +96,8 @@ function addSong(event) {
       // Buttons "Löschen" und "Update" anzeigen
       var deleteButton = document.getElementById('deleteButton');
       var updateButton = document.getElementById('updateButton');
-      deleteButton.style.display = 'block';
-      updateButton.style.display = 'block';
+      deleteButton.style.display = 'inline-block';
+      updateButton.style.display = 'inline-block';
 
       // Daten im Formular anzeigen
       document.getElementById('title').value = song.title;
