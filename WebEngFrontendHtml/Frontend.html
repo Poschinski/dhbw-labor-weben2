@@ -3,7 +3,6 @@
 <head>
   <title>Meine Musikbibliothek</title>
   <link rel="stylesheet" href="Frontend.css">
-  <script language="javascript" type="text/javascript" src="Frontend.js"></script>
   <style></style>
 </head>
 <body>
@@ -37,11 +36,29 @@
     </div>
     <div class="list-container">
       <h2>Meine Musikbibliothek</h2>
-      <ul id="songList"></ul>
+      <table id="songTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Album</th>
+            <th>Artist</th>
+            <th>Genre</th>
+            <th>Release Date</th>
+            <th>Recording Medium</th>
+            <th>File Name</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <!-- <ul id="songList"></ul> -->
+
+      <button id="deleteButton" style="display: none;" onclick="deleteSong()">Löschen</button>
+      <button id="updateButton" style="display: none;" onclick="updateSong()">Update</button>
+
     </div>
   </div>
-
-  <script>
-  </script>
+  <script language="javascript" type="text/javascript" src="Frontend.js"></script>
 </body>
 </html>
