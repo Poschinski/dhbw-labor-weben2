@@ -68,7 +68,7 @@ function addSong(event) {
         songList.appendChild(listItem);
       });
     })
-    .catch(error => console.error(error));
+    //.catch(error => console.error(error));
   }
 
   // Event Listener für das Absenden des Formulars
