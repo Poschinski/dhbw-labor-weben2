@@ -7,23 +7,7 @@ function addSong(event) {
     event.preventDefault();
 
     const form = document.getElementById('songForm');
-    const title = form.elements.title.value;
-    const album = form.elements.album.value;
-    const artist = form.elements.artist.value;
-    const genre = form.elements.genre.value;
-    const releaseDate = form.elements.releaseDate.value;
-    const medium = form.elements.medium.value;
-    const filename = form.elements.filename.value;
-
-    const song = {
-      title: title,
-      album: album,
-      artist: artist,
-      genre: genre,
-      releaseDate: releaseDate,
-      recordingMedium: medium,
-      fileName: filename
-    };
+    song = getFormularData();
 
     // API-Aufruf zum Speichern des Songs
     fetch(defaultUrl +'/api/songs', {
@@ -47,14 +31,13 @@ function addSong(event) {
   // Funktion zum Laden der Songs
   function loadSongs() {
 
-    console.log("load songs")
     // API-Aufruf zum Laden der Songs
     fetch(defaultUrl + '/api/songs')
     .then(response => response.json())
     .then(data => {
       createTable(data)
     })
-    //.catch(error => console.error(error));
+    .catch(error => console.error(error));
   }
 
   // Funktion zum Erstellen der Tabelle
@@ -143,18 +126,63 @@ function addSong(event) {
     });
   }
 
-  function deleteSong(song) {
-    var songId = song.id;
+  function deleteSong() {
+    var songId = selectedSong.id;
 
-    
+    return fetch(defaultUrl + '/api/songs/' + songId, {
+      method: 'Delete'
+    })
+    .then(data => {
+      // Aufruf zum Laden der aktualisierten Songliste
+      loadSongs();
+    })
+    .catch(error => console.error(error));
   }
 
+  function updateSong() {
+    var songId = selectedSong.id;
+    song = getFormularData();
+
+    return fetch(defaultUrl + '/api/songs/' + songId, {
+      method: 'Put',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(song)
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Aufruf zum Laden der aktualisierten Songliste
+      loadSongs();
+    })
+    .catch(error => console.error(error));
+  }
+
+  function getFormularData() {
+    const form = document.getElementById('songForm');
+
+    const title = form.elements.title.value;
+    const album = form.elements.album.value;
+    const artist = form.elements.artist.value;
+    const genre = form.elements.genre.value;
+    const releaseDate = form.elements.releaseDate.value;
+    const medium = form.elements.medium.value;
+    const filename = form.elements.filename.value;
+
+    return {
+      title: title,
+      album: album,
+      artist: artist,
+      genre: genre,
+      releaseDate: releaseDate,
+      recordingMedium: medium,
+      fileName: filename
+    };
+  }
   // Event Listener für das Absenden des Formulars
   const songForm = document.getElementById('songForm');
 
   songForm.addEventListener('submit', addSong);
 
   // Beim Laden der Seite Songs laden
-
   loadSongs();
-
