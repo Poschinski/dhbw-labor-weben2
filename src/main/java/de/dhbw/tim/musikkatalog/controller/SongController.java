@@ -15,7 +15,7 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class SongController {
 
-    private SongRepository songRepository;
+    private final SongRepository songRepository;
 
     public SongController(SongRepository songRepository) { this.songRepository = songRepository;}
 
@@ -23,7 +23,7 @@ public class SongController {
     public ResponseEntity<List<Song>> getAllSongs(@RequestParam(required = false) String title) {
 
         try {
-            List<Song> posts = new ArrayList<Song>();
+            List<Song> posts = new ArrayList<>();
 
             if (title == null) {
                 posts.addAll(songRepository.findAll());
@@ -71,12 +71,52 @@ public class SongController {
 
     @DeleteMapping("/songs/{id}")
     public ResponseEntity<HttpStatus> deleteSong(@PathVariable("id") long id) {
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        Optional<Song> song = this.findSongInLocalList(id);
+
+        if (song.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            songRepository.delete(song.get());
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
     }
 
-    @GetMapping("/test")
-    public ResponseEntity<String> testResponse() {
-        return new ResponseEntity<>("Helo", HttpStatus.OK);
+    @PutMapping("/songs/{id}")
+    public ResponseEntity<Song> updateSongs(@PathVariable("id") long id, @RequestBody Song song) {
+        Optional<Song> currentSong = this.findSongInLocalList(id);
+        if (currentSong.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            songRepository.delete(currentSong.get());
+            currentSong.get().setAlbum(song.getAlbum());
+            currentSong.get().setGenre(song.getGenre());
+            currentSong.get().setArtist(song.getArtist());
+            currentSong.get().setTitle(song.getTitle());
+            currentSong.get().setFileName(song.getFileName());
+            currentSong.get().setRecordingMedium(song.getRecordingMedium());
+            currentSong.get().setReleaseDate(song.getReleaseDate());
+            songRepository.save((currentSong.get()));
+            return new ResponseEntity<>(currentSong.get(), HttpStatus.OK);
+        }
     }
 
+    private Optional<Song> findSongInLocalList(long id) {
+        return songRepository.findById(id);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
