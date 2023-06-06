@@ -54,7 +54,7 @@ function addSong(event) {
     .then(data => {
       createTable(data)
     })
-    .catch(error => console.error(error));
+    //.catch(error => console.error(error));
   }
 
   // Funktion zum Erstellen der Tabelle
