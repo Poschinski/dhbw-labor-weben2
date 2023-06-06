@@ -73,7 +73,7 @@ function addSong(event) {
         console.log(songList)
       });
     })
-    .catch(error => console.error(error));
+    //.catch(error => console.error(error));
   }
 
   // Event Listener für das Absenden des Formulars
