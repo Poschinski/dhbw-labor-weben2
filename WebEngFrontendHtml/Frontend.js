@@ -1,3 +1,5 @@
+let defaultUrl = "http://localhost:8080"
+
 // Funktion zum Hinzufügen eines neuen Songs
 function addSong(event) {
     event.preventDefault();
@@ -22,7 +24,7 @@ function addSong(event) {
     };
 
     // API-Aufruf zum Speichern des Songs
-    fetch('/api/songs', {
+    fetch(defaultUrl +'/api/songs', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -42,8 +44,10 @@ function addSong(event) {
 
   // Funktion zum Laden der Songs
   function loadSongs() {
+
+    console.log("load songs")
     // API-Aufruf zum Laden der Songs
-    fetch('/api/songs')
+    fetch(defaultUrl + '/api/songs')
     .then(response => response.json())
     .then(data => {
       const songList = document.getElementById('songList');
@@ -66,6 +70,7 @@ function addSong(event) {
         });
 
         songList.appendChild(listItem);
+        console.log(songList)
       });
     })
     //.catch(error => console.error(error));
@@ -73,7 +78,10 @@ function addSong(event) {
 
   // Event Listener für das Absenden des Formulars
   const songForm = document.getElementById('songForm');
+
   songForm.addEventListener('submit', addSong);
 
   // Beim Laden der Seite Songs laden
+
   loadSongs();
+
