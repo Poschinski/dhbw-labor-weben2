@@ -5,7 +5,7 @@
             "album": "Highway 61 Revisited",
             "artist": "Bob Dylan",
             "genre": "Folk-Rock",
-            "releaseDate": "20.07.1965",
+            "releaseDate": "1965-07-20",
             "recordingMedium": "cd",
             "fileName": "Like-a-rolling-stone.wav"
         },
@@ -14,7 +14,7 @@
             "album": "21",
             "artist": "Adele",
             "genre": "Pop",
-            "releaseDate": "29.11.2010",
+            "releaseDate": "2010-11-29",
             "recordingMedium": "mp3",
             "fileName": "rolling-in-the-deep.mp3"
         },
@@ -23,7 +23,7 @@
             "album": "Torches",
             "artist": "Foster the people",
             "genre": "Indie-Pop",
-            "releaseDate": "23.05.2011",
+            "releaseDate": "2011-05-23",
             "recordingMedium": "mp3",
             "fileName": "torches.mp3"
         },
@@ -32,7 +32,7 @@
             "album": "single",
             "artist": "Faithless",
             "genre": "Trance",
-            "releaseDate": "24.08.1998",
+            "releaseDate": "1998-08-24",
             "recordingMedium": "mp3",
             "fileName": "god-is-a-dj.mp3"
         },
@@ -41,7 +41,7 @@
             "album": "24k Gold",
             "artist": "Bruno Mars",
             "genre": "Hip Hop",
-            "releaseDate": "30.01.2017",
+            "releaseDate": "2017-01-30",
             "recordingMedium": "mp3",
             "fileName": "thats-what-i-like.mp3"
         },
@@ -50,7 +50,7 @@
             "album": "Unapologetic",
             "artist": "Rihanna",
             "genre": "Pop",
-            "releaseDate": "27.09.2012",
+            "releaseDate": "2012-09-27",
             "recordingMedium": "cd",
             "fileName": "diamonds.flac"
         },
@@ -59,7 +59,7 @@
             "album": "The Reason",
             "artist": "Hoobastank",
             "genre": "Rock",
-            "releaseDate": "20.01.2004",
+            "releaseDate": "2004-01-20",
             "recordingMedium": "cd",
             "fileName": "the-reason.flac"
         },
@@ -68,7 +68,7 @@
             "album": "Broadcast",
             "artist": "Cutting Crew",
             "genre": "Pop",
-            "releaseDate": "10.07.1986",
+            "releaseDate": "1986-07-10",
             "recordingMedium": "cd",
             "fileName": "died-in-your-arms.wav"
         },
@@ -77,7 +77,7 @@
             "album": "In a Perfect World…",
             "artist": "Keri Hilson",
             "genre": "Europop",
-            "releaseDate": "11.12.2009",
+            "releaseDate": "2009-12-11",
             "recordingMedium": "mp3",
             "fileName": "i-like.mp3"
         },
@@ -86,7 +86,7 @@
             "album": "Highway 61 Revisited",
             "artist": "Bob Dylan",
             "genre": "Folk-Rock",
-            "releaseDate": "20.07.1965",
+            "releaseDate": "1965-07-20",
             "recordingMedium": "cd",
             "fileName": "Like-a-rolling-stone"
         },
@@ -95,7 +95,7 @@
             "album": "When We All Fall Asleep, Where Do We Go?",
             "artist": "Billie Eilish",
             "genre": "Pop",
-            "releaseDate": "29.03.2019",
+            "releaseDate": "2019-03-29",
             "recordingMedium": "mp3",
             "fileName": "bad-guy.mp3"
         },
@@ -104,7 +104,7 @@
             "album": "Alannah Myles",
             "artist": "Alannah Myles",
             "genre": "Bluesrock",
-            "releaseDate": "17.12.1989",
+            "releaseDate": "1989-12-17",
             "recordingMedium": "cd",
             "fileName": "black-velvet.wav"
         },
@@ -113,7 +113,7 @@
             "album": "Cheese",
             "artist": "Stromae",
             "genre": "Pop",
-            "releaseDate": "26.09.2009",
+            "releaseDate": "2009-09-26",
             "recordingMedium": "mp3",
             "fileName": "alors-en-danse.mp3"
         },
@@ -122,7 +122,7 @@
             "album": "Confessions",
             "artist": "Usher",
             "genre": "R&B",
-            "releaseDate": "27.01.2004",
+            "releaseDate": "2004-01-27",
             "recordingMedium": "mp3",
             "fileName": "yeah.mp3"
         }
