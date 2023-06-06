@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+  }
+  .form-container {
+    flex: 1;
+    padding: 20px;
+  }
+  .list-container {
+    flex: 1;
+    padding: 20px;
+  }
