@@ -22,7 +22,7 @@ function addSong(event) {
     };
 
     // API-Aufruf zum Speichern des Songs
-    fetch('http://localhost:8080/api/songs', {
+    fetch('/api/songs', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ function addSong(event) {
   // Funktion zum Laden der Songs
   function loadSongs() {
     // API-Aufruf zum Laden der Songs
-    fetch('http://localhost:8080/api/songs')
+    fetch('/api/songs')
     .then(response => response.json())
     .then(data => {
       const songList = document.getElementById('songList');
