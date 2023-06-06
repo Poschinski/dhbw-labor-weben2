@@ -87,16 +87,16 @@ public class SongController {
         if (currentSong.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
-            songRepository.delete(currentSong.get());
-            currentSong.get().setAlbum(song.getAlbum());
-            currentSong.get().setGenre(song.getGenre());
-            currentSong.get().setArtist(song.getArtist());
-            currentSong.get().setTitle(song.getTitle());
-            currentSong.get().setFileName(song.getFileName());
-            currentSong.get().setRecordingMedium(song.getRecordingMedium());
-            currentSong.get().setReleaseDate(song.getReleaseDate());
-            songRepository.save((currentSong.get()));
-            return new ResponseEntity<>(currentSong.get(), HttpStatus.OK);
+            Song _song = currentSong.get();
+            _song.setTitle(song.getTitle());
+            _song.setAlbum(song.getAlbum());
+            _song.setArtist(song.getArtist());
+            _song.setGenre(song.getGenre());
+            _song.setReleaseDate(song.getReleaseDate());
+            _song.setRecordingMedium(song.getRecordingMedium());
+            _song.setFileName(song.getFileName());
+
+            return new ResponseEntity<>(this.songRepository.save(_song), HttpStatus.OK);
         }
     }
 
