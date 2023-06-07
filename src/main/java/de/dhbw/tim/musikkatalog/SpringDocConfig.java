@@ -14,10 +14,10 @@ public class SpringDocConfig {
         return new OpenAPI()
                 .info(
                         new Info()
-                                .title("Title")
-                                .description("Description")
+                                .title("Musikkatalog API")
+                                .description("Diese API stellt Informationen zu Musiktiteln zur Verfügung.")
                                 .version("V1")
-                                .contact(new Contact().name("me"))
+                                .contact(new Contact().name("Marcus Unglert").email("unglert.marcus-it22@it.dhbw-ravensburg.de"))
                                 .license(new License().name("MIT"))
                 );
     }
